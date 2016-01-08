@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
      has_many :conversations, :foreign_key => :sender_id
      after_create :create_default_conversation
      scope :online_users_list, -> { where(status:true)}
-
+ enum role: [:admin]
      private
 
      # for demo purposes

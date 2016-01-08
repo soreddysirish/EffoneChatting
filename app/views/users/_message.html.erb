@@ -1,9 +1,44 @@
-<ul class="groupmessages_list">
-<% @groupmessages= Groupmessage.last(5) %>
-<% @groupmessages.each do |msg| %>
-  <li style="list-style-type:none">
-    <label class='label label-default'><%= msg.user.name %></label>:
-      <%= msg.text %></li>
-      <% end %>
+<script>
+window.onload = function (){
+	var objDiv = document.getElementById("groupmessages_list");
+	objDiv.scrollTop = objDiv.scrollHeight;
+}
+var objDiv = document.getElementById("groupmessages_list");
+objDiv.scrollTop = objDiv.scrollHeight;
+$(document).ready(function(){
+
+
+})
+</script>
+
+<div class="panel panel-info">
+	<div class="panel-heading" > Recent chat history</div>
+	<div id = "groupmessages_list" style="overflow-y:scrolll;height:200px">
+	<div class=" panel-body">
+		<% @groupmessages= Groupmessage.all %>
+		<ul class = "media-list">
+			<% @groupmessages.each do |msg| %>
+			<% if current_user.name == msg.user.name %>
+			<li   class = "media" >
+				<div class="media-body"><%= msg.text %></div>
+				<br>
+				<small class = "text-muted"><span class="label label-success"><%= msg.user.name.titleize %> at <%= msg.created_at.strftime("%I:%M %p") %></span></small>
+				<hr>	
+			</li>
+			<% else %>
+			<li  class = "media" >
+				<div class="media-body"><%= msg.text %></div>
+				<br>
+				<small class = "text-muted"><span class="label label-info"><%= msg.user.name.titleize %> at <%= msg.created_at.strftime("%I:%M %p") %></span></small>
+				<hr>		
+			</li>
+			<% end %> 
+			<% end %>	
+		</ul>
+	</div>
+	</div>
+	<div class = "panel-footer">
+		 <%= render :partial => 'groupmessages/form' %>
       
- </ul>
+  </div>
+</div>

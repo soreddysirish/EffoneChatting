@@ -1,8 +1,9 @@
 .chatbox {
     position: fixed;
     position: expression("absolute");
-    width: 280px;
+    width: 200px;
     display: none;
+    
 }
 
 .chatboxhead {
@@ -130,7 +131,7 @@
 }
 
 .chatboxtextarea {
-    width: 262px;
+   
     height: 44px;
     padding: 3px 0pt 3px 3px;
     border: 1px solid #eeeeee;
@@ -167,4 +168,38 @@
 
 .chatboxtitle {
     float: left;
+}
+
+div .chatboxcontent {
+    height: 200px;
+width: 200px;
+}
+
+textarea #message_body .chatboxtextarea {
+    width: 187px;
+}
+
+div #chatbox_2 .chatbox {
+    bottom: 0px;
+right: 20px;
+display: block;
+width: 200px;
+}
+
+textarea #message_body  {
+width: 185px;
+height: 44px;
+padding: 3px 0pt 3px 3px;
+border: 1px solid #eeeeee;
+margin: 1px;
+overflow: hidden;
+resize: none !important;
+}
+
+div .chatboxinput {
+    width:200px;
+}
+
+div .chatboxhead {
+    width: 200px;
 }

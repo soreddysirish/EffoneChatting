@@ -1,0 +1,292 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  }
+  .navbar-inverse .navbar-brand {
+  color: white;
+  }
+
+
+  .simple_form label {
+  float: left;
+  width: 200px;
+  text-align: right;
+  margin: 2px 10px;
+  margin-left: -100px;
+  }
+
+  .simple_form div.input {
+  margin-bottom: 10px;
+  float:right;
+  }
+
+  .simple_form div.boolean, .simple_form input[type='submit'] {
+  margin-left: 120px;
+  }
+
+  .simple_form div.boolean label {
+  float: none;
+  margin-left: -220px;
+  margin-top:  -15px;
+  }
+
+  .form-group{
+  padding : 2px;
+  }
+
+  .form-control
+  {
+  display: block;
+  width: 30%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  }
+
+  .panel-login {
+  margin-top: 90px;
+  border-color: #ccc;
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+  margin-left: 11%;
+  margin-right: 44%;
+  }
+
+  .panel-login>.panel-heading {
+  color: #00415d;
+  background-color: #fff;
+  border-color: #fff;
+  text-align:center;
+  }
+
+  .panel-login>.panel-heading a{
+  text-decoration: none;
+  color: #666;
+  font-weight: bold;
+  font-size: 15px;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  }
+
+  .panel-login>.panel-heading a.active{
+  color: #029f5b;
+  font-size: 18px;
+  }
+
+  .panel-login>.panel-heading hr{
+  margin-top: 10px;
+  margin-bottom: 0px;
+  clear: both;
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+  background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+  background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+  }
+
+  .panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+  height: 45px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  }
+
+  .panel-login input:hover,
+  .panel-login input:focus {
+  outline:none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-color: #ccc;
+  }
+
+  .btn-login {
+  background-color: #59B2E0;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  height: auto;
+  font-weight: normal;
+  padding: 14px 0;
+  text-transform: uppercase;
+  border-color: #59B2E6;
+  margin-left: 0%;
+  margin-bottom: 1%;
+  }
+
+  .btn-login:hover,
+  .btn-login:focus {
+  color: #fff;
+  background-color: #53A3CD;
+  border-color: #53A3CD;
+  }
+
+  div .form-inputs {
+  padding-bottom: 14px;
+  }
+
+#message-box {
+  float:left;
+  padding-top: 2%;
+  
+}
+
+#messages_list {
+  word-wrap: break-word;
+}
+
+.navbar-inverse {
+background-color: #23CAA9;
+border-color: #4EB39E;;
+}
+
+.nav > li > a {
+position: relative;
+display: block;
+padding: 10px 15px;
+color: rgb(52, 111, 151);
+}
+
+div .well {
+ 
+width: 136%;
+min-height: 20px;
+padding: 19px;
+margin-bottom: 20px;
+
+}
+
+.nav-sidebar { 
+    width: 100%;
+    padding: 8px 0; 
+    height:auto;
+}
+.nav-sidebar a {
+    color: #333;
+    -webkit-transition: all 0.08s linear;
+    -moz-transition: all 0.08s linear;
+    -o-transition: all 0.08s linear;
+    transition: all 0.08s linear;
+    -webkit-border-radius: 4px 0 0 4px; 
+    -moz-border-radius: 4px 0 0 4px; 
+    border-radius: 4px 0 0 4px; 
+}
+.nav-sidebar .active a { 
+    cursor: default;
+    background-color: #428bca; 
+    color: #fff; 
+    text-shadow: 1px 1px 1px #666; 
+}
+.nav-sidebar .active a:hover {
+    background-color: #428bca;   
+}
+.nav-sidebar .text-overflow a,
+.nav-sidebar .text-overflow .media-body {
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis; 
+}
+
+
+.panel-info {
+border-color: #bce8f1;
+}
+
+
+.panel-heading {
+padding: 10px 15px;
+border-bottom: 1px solid transparent;
+border-top-right-radius: 3px;
+border-top-left-radius: 3px;
+color: #31708f;
+background-color: #d9edf7;
+border-color: #bce8f1;
+
+}
+
+.panel-body {
+padding: 15px;
+overflow-wrap: break-word;
+word-break: break-word;
+}
+
+.media-list {
+padding-left: 0;
+list-style: none;
+}
+.media:first-child {
+margin-top: 0;
+}
+
+.media-body {
+overflow: hidden;
+zoom: 1;
+}
+
+.text-muted {
+color: #777;
+float:right;
+}
+
+hr {
+margin-top: 20px;
+margin-bottom: 20px;
+border: 0;
+border-top: 1px solid #eee;
+}
+#groupmessages_list {
+  overflow-x:hidden; 
+}
+
+
+
+.panel-footer {
+padding: 10px 15px;
+background-color: #f5f5f5;
+border-top: 1px solid #ddd;
+border-bottom-right-radius: 3px;
+border-bottom-left-radius: 3px;
+}
+
+.input-group {
+position: relative;
+display: table;
+border-collapse: separate;
+}
+
+.alert-danger {
+background-color: #f2dede;
+border-color: #ebccd1;
+color: #a94442;
+width: 70%;
+}
