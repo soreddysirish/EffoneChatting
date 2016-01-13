@@ -5,18 +5,30 @@ class UsersController < ApplicationController
 
   def index
     @groupmessage = Groupmessage.new
+    
   #  @groupmessages = Groupmessage.all
     #binding.pry
     #  @users = User.where.not("id = ?",current_user.id).order("created_at DESC")
     if user_signed_in?
       current_user.update_attributes(status:true)
-      @users=User.online_users_list
+      @users = User.online_users_list
+      @onlineusers = @users-[current_user]  
       @conversations = Conversation.involving(current_user).order("created_at DESC")
-    end
+     
   end
+end
+  
+   def list_of_users
+     @userslist=User.all
+   end
 
-
-
+   def toggle
+     @user=User.find(params[:id])
+   if @user.update_attributes(banned:params[:banned])
+     flash[:alert]=" user is successfully banned"
+     render nothing:true
+   end
+ end
 
   def show
   end
@@ -34,10 +46,9 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to authenticated_root_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -45,6 +56,7 @@ class UsersController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
@@ -78,7 +90,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name,:email,:password,:password_confirmation)
+      params.require(:user).permit(:name,:email,:password,:password_confirmation,:avatar)
     end
-
 end
+

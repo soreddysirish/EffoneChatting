@@ -1,0 +1,23 @@
+<script>
+
+</script>
+ <div id = "onlineusers">
+	<nav class="nav-sidebar"> 
+	<% if user_signed_in? %>
+	<div class="panel panel-primary"> 
+	<div class = "panel-heading">Online Users</div>
+	
+	<% @users = User.online_users_list %>
+   <% @onlineusers = @users - [current_user] %>
+	<ul class="nav media-list" id = "users_list">
+		<% @onlineusers.each do  |user| %>
+		<% if user_signed_in? %>
+		<li style="list-style-type: none;" class=".online_users"><%=link_to  user.name.titleize,"#",class: " btn-xs start-conversation",
+		"data-sid" => current_user.id, "data-rip" => user.id %></li>
+		<% end %>
+		<% end %>
+	</ul>	
+	<% end %>
+	<div>
+</nav>
+</div>

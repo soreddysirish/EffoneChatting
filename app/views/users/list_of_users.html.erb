@@ -1,0 +1,78 @@
+<script>
+$(document).ready(function() {
+  $(".checkboxforblocunblockuser").bind('change', function() {
+    //debugger;
+    if(this.checked) {
+      if(confirm("you sure to block this user?")) {
+        $(this).prop("checked", true);
+      }
+        else {
+           $(this).prop("checked", false);
+          //alert("hi");
+        }
+
+     $.ajax({
+        url: '/users/' + this.value + '/toggle',
+        type: 'POST',
+        data: {
+          'banned': this.checked
+        }
+      });
+    }
+    else {
+      if(confirm("You sure to unblock this user?")) {
+         $(this).prop("checked", false);
+      }
+      else {
+        $(this).prop("checked", true);
+      }
+      $.ajax({
+         url: '/users/' + this.value + '/toggle',
+         type: 'POST',
+         data: {
+           'banned': false
+         }
+       });
+    }
+  });
+});
+</script>
+<div class="panel panel-info">
+  <legend><h4>All Users</h4></legend>
+  <div class = "panel-body">
+<div class="table-responsive">
+<table class ="table">
+  <thead>
+    <tr>
+      <th>User name </th>
+      <th> email </th>
+
+      <th> Block/unblock user </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @userslist.each do |user|  %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td>
+          <% if current_user.present? && current_user.admin? %>
+                <%= check_box_tag 'banned', user.id, user.banned,:class =>'checkboxforblocunblockuser'%>
+                <span>
+                <% if user.banned==true %>
+                    <%= "banned" %>
+                <% end %>
+                </span>
+          <% else %>
+              <%=  user.banned %>
+          <% end %>
+        </td>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>

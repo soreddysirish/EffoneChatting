@@ -84,7 +84,7 @@ var ready = function () {
                 return;
             }
 
-            $("body").append('<div id="chatbox_' + conversation_id + '" class="chatbox"></div>')
+            $("#chatbox_parent").append('<div id="chatbox_' + conversation_id + '" class="chatbox"></div>');
 
             $.get("conversations/" + conversation_id, function (data) {
                 $('#chatbox_' + conversation_id).html(data);
@@ -104,7 +104,7 @@ var ready = function () {
             if (chatBoxeslength == 0) {
                 $("#chatbox_" + conversation_id).css('right', '20px');
             } else {
-                width = (chatBoxeslength) * (280 + 7) + 20;
+                width = (chatBoxeslength) * (230) + 20;
                 $("#chatbox_" + conversation_id).css('right', width + 'px');
             }
 

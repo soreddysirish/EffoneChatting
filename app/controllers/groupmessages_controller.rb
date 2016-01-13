@@ -30,7 +30,13 @@ class GroupmessagesController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
 
+  def destroy 
+    @groupmessage = Groupmessage.find(params[:id])
+    @groupmessage.destroy
+    @allgroupmessages = Groupmessage.all
+    @allgroupmessages.destroy
   end
 
 

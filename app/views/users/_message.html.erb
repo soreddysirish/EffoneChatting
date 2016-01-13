@@ -1,9 +1,59 @@
-<ul class="groupmessages_list">
-<% @groupmessages= Groupmessage.last(5) %>
-<% @groupmessages.each do |msg| %>
-  <li style="list-style-type:none">
-    <label class='label label-default'><%= msg.user.name %></label>:
-      <%= msg.text %></li>
-      <% end %>
-      
- </ul>
+
+
+<div class="panel panel-info">
+	<div class="panel-heading" > Recent chat history
+		<div style = "float:right"><%= link_to "Delete History", :method => :delete  %></div>
+	</div>
+	<div id = "groupmessages_list" style="overflow-y:scrolll;height:400px">
+	<div class=" panel-body">
+		<% @avatar = User.where(:avatar_file_name) %>
+		<% @groupmessages= Groupmessage.all %>
+		<ul class = "media-list">
+			<% @groupmessages.each do |msg| %>
+			<% if current_user.name == msg.user.name %>
+			<li   class = "media", id = "list-item" >
+				<div class="media-body">
+				<div class="media">
+					<a class= "pull-left" href = "#"><%= image_tag ("#{@vatar}"), alt: "",class: "img-circle" %></a>
+				
+				<div class = "meida-body">
+					<%= msg.text %>
+				<br>
+				<small class = "text-muted"><%= msg.user.name.titleize %> at <%= msg.created_at.strftime("%I:%M %p") %> | <%= link_to "Delete", :id => "delete_message"%></small>
+				<hr>
+				</div>				
+			</li>
+			<% else %>
+			<li   class = "media", id = "list-item" >
+				<div class="media-body">
+				<div class="media">
+					<a class= "pull-left" href = "#"><%= image_tag ("#{@avatar}"),alt: "",class: "img-circle" %></a>
+				
+				<div class = "meida-body">
+					<%= msg.text %>
+				<br>
+				<small class = "text-muted"><%= msg.user.name.titleize %> at <%= msg.created_at.strftime("%I:%M %p") %> | <%= link_to "Delete", :id => "delete_message"%></small>
+				<hr>
+				</div>	
+			</li>
+			<% end %> 
+			<% end %>	
+		</ul>
+	</div>
+</div>
+	<div class = "panel-footer">
+		
+        
+	</div>
+</div>
+
+<script>
+window.onload = function (){
+	var objDiv = document.getElementById("groupmessages_list");
+	objDiv.scrollTop = objDiv.scrollHeight;
+
+}
+var objDiv = document.getElementById("groupmessages_list");
+objDiv.scrollTop = objDiv.scrollHeight;
+
+</script>

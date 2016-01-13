@@ -18,3 +18,9 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+$(document).ready(function(){
+	var cbLength = $("#chatbox_parent").length 	
+	if (cbLength > 3) {
+		$("#chatbox_parent").find("div").first().remove();
+	}
+})
