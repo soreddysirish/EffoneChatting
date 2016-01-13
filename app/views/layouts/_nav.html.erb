@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav pull-right">
           <li>
         <% if current_user.present? && current_user.admin? %>
-          <%= link_to "view all users",  users_list_of_users_path %>
+          <%= link_to "view all users",  users_list_of_users_path, :style => "color:white" %>
         <% end %>
       </li>
         <% if user_signed_in? %>
@@ -27,15 +27,15 @@
             <%= link_to "Logged in as #{current_user.email}" %>
           </li>
           <li>
-            <%= link_to "Logout", destroy_user_session_path, method: :delete    %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete ,:style => "color:white"   %>
           </li>
          <% else %>
             <li>
-              <%= link_to "Signin", new_user_session_path %>
+              <%= link_to "Signin", new_user_session_path, :style => "color:white" %>
             </li>
             
             <li>
-              <%= link_to "Signup", new_user_path %>
+              <%= link_to "Signup", new_user_path, :style => "color:white" %>
             </li>
         <% end %>
       </ul>

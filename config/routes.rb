@@ -5,7 +5,7 @@ Rails.application.routes.draw do
      match 'users/list_of_users'=> 'users#list_of_users',via: [:get]
      resources :users
     root to: "users#index", as: :authenticated_root
-    resources :groupmessages
+    resources :groupmessages 
   end
   unauthenticated   do
       root to:'welcome#index', as: :unauthenticated_root

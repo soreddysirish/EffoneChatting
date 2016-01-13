@@ -1,3 +1,4 @@
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -165,15 +166,18 @@ body {
 }
 
 .navbar-inverse {
-background-color: #23CAA9;
-border-color: #4EB39E;;
+background-color: #778899;
+border-color: #778899;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color:white;
 }
 
 .nav > li > a {
 position: relative;
 display: block;
 padding: 10px 15px;
-color: rgb(52, 111, 151);
 }
 
 div .well {
@@ -236,14 +240,16 @@ border-color: #bce8f1;
 
 .panel-body {
 padding: 15px;
-overflow-wrap: break-word;
-word-break: break-word;
+
 }
 
 .media-list {
 padding-left: 0;
 list-style: none;
+overflow-wrap: break-word;
+word-break: break-word;
 }
+
 .media:first-child {
 margin-top: 0;
 }
@@ -263,6 +269,7 @@ margin-top: 20px;
 margin-bottom: 20px;
 border: 0;
 border-top: 1px solid #eee;
+box-sizing: content-box;
 }
 #groupmessages_list {
   overflow-x:hidden; 
@@ -289,4 +296,32 @@ background-color: #f2dede;
 border-color: #ebccd1;
 color: #a94442;
 width: 70%;
+}
+
+.media > .pull-left {
+margin-right: 10px;
+}
+
+.pull-left {
+float: left !important;
+}
+
+a {
+color: #428bca;
+text-decoration: none;
+background: transparent;
+}
+
+
+.media-object {
+display: block;
+}
+.img-circle {
+border-radius: 50%;
+height: 50px;
+width: 50px;
+}
+
+#message_box {
+  z-index: 1;
 }

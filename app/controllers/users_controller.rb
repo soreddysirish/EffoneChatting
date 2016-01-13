@@ -14,9 +14,9 @@ class UsersController < ApplicationController
       @users = User.online_users_list
       @onlineusers = @users-[current_user]  
       @conversations = Conversation.involving(current_user).order("created_at DESC")
-      
-    end
+     
   end
+end
   
    def list_of_users
      @userslist=User.all
@@ -46,7 +46,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to authenticated_root_path, notice: 'User was successfully created.' }
@@ -57,6 +56,7 @@ class UsersController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
@@ -90,7 +90,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name,:email,:password,:password_confirmation)
+      params.require(:user).permit(:name,:email,:password,:password_confirmation,:avatar)
     end
-
 end
+

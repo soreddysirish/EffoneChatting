@@ -40,8 +40,32 @@
      <div id = "chatbox_parent">
       
      </div>
+      <%= subscribe_to "/chatroom"  %>
+     <script>
+       PrivatePub.subscribe("/chatroom", function(data, channel)
+        {
+       var current_user_id = '#{current_user.try(:id)}';
+        if (data.receiver_id == current_user_id)
+         {
+           chatBox.chatWith(data.conversation_id);
+          }
+          else {
+            chatBox.chatWith(data.conversation_id);
+          }
+         });
+       </script>
       <%= yield %>
   <!-- <audio id="chatAudio"><source src="/sounds/notification.mp3" type="audio/mpeg"></audio> -->
 </body>
+<div class="container-fluid">
+  <dvi class = "row">
+    <div class=" col-md-12">
+      <footer class="navbar-inverse navbar-fixed-bottom">
+        
+        <p style = "text-align:center; color:#eee"><span class = "glyphicon glyphicon-copyright-mark"> </span>  Effone Technologies</p>
 
+      </footer>
+    </div>
+  </div>
+</div>
 </html>
