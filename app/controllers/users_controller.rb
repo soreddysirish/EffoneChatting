@@ -22,6 +22,11 @@ end
      @userslist=User.all
    end
 
+   def show_image
+    @user = current_user
+    @avatar = @user.avatar_file_name
+   end
+
    def toggle
      @user=User.find(params[:id])
    if @user.update_attributes(banned:params[:banned])

@@ -18,8 +18,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
-
-
+gem "emoji"
+gem 'unread'
 group :development, :test do
   gem 'byebug'
   gem 'pry'

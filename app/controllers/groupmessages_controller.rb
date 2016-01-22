@@ -35,8 +35,10 @@ class GroupmessagesController < ApplicationController
   def destroy 
     @groupmessage = Groupmessage.find(params[:id])
     @groupmessage.destroy
-    @allgroupmessages = Groupmessage.all
-    @allgroupmessages.destroy
+    respond_to do |format|
+    format.html { redirect_to users_url }
+    format.js {render :layout => false}
+  end
   end
 
 

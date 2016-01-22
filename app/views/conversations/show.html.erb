@@ -1,9 +1,3 @@
-<!-- <script>
-$('.chatboxtextarea').focus(function()
-{
-  $(this).focus();
-});
-</script> -->
 <div class="chatboxhead">
   <div class="chatboxtitle">
     <i class="fa fa-comments"></i>
@@ -11,8 +5,8 @@ $('.chatboxtextarea').focus(function()
     <h1><%= @reciever.name %> </h1>
   </div>
   <div class="chatboxoptions">
-    <%= link_to "<i class='fa  fa-minus-circle fa-spin'></i> ".html_safe, "#", class: "toggleChatBox", "data-cid" => @conversation.id %>
-    <%= link_to "<i class='fa  fa-times-circle fa-spin'></i> ".html_safe, "#", class: "closeChat", "data-cid" => @conversation.id %>
+    <%= link_to "<i class='fa  fa-minus-circle'></i> ".html_safe, "#", class: "toggleChatBox", "data-cid" => @conversation.id %>
+    <%= link_to "<i class='fa  fa-times-circle'></i> ".html_safe, "#", class: "closeChat", "data-cid" => @conversation.id %>
   </div>
 </div>
 <div class="chatboxcontent">

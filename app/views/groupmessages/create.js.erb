@@ -1,4 +1,5 @@
 <% publish_to "/groupmessages/new" do  %>
 $('#messages_list').html("<%= j (render :partial => "users/message") %>");
-$('#message_box').attr('value','');
+$('.new_groupmessage')[0].reset();
+
 <% end %>

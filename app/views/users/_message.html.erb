@@ -2,48 +2,53 @@
 
 <div class="panel panel-info">
 	<div class="panel-heading" > Recent chat history
-		<div style = "float:right"><%= link_to "Delete History", :method => :delete  %></div>
+
 	</div>
 	<div id = "groupmessages_list" style="overflow-y:scrolll;height:400px">
 	<div class=" panel-body">
-		<% @avatar = User.where(:avatar_file_name) %>
-		<% @groupmessages= Groupmessage.all %>
-		<ul class = "media-list">
+
+		<ul class = "media-list" id = "ul">
+			<% @groupmessages= Groupmessage.all %>
 			<% @groupmessages.each do |msg| %>
 			<% if current_user.name == msg.user.name %>
-			<li   class = "media", id = "list-item" >
+
+			<li id = "list-item" >
 				<div class="media-body">
 				<div class="media">
-					<a class= "pull-left" href = "#"><%= image_tag ("#{@vatar}"), alt: "",class: "img-circle" %></a>
-				
-				<div class = "meida-body">
+					<a class= "pull-left" href = "#"><%= image_tag msg.user.avatar,alt: "",class: "img-circle" %></a>
+
+					<div class = "media-body">
 					<%= msg.text %>
 				<br>
-				<small class = "text-muted"><%= msg.user.name.titleize %> at <%= msg.created_at.strftime("%I:%M %p") %> | <%= link_to "Delete", :id => "delete_message"%></small>
+				<small class = "text-muted"><%= msg.user.name.titleize %> at <%= msg.created_at.strftime("%I:%M %p") %> | <%= link_to "Delete",msg, method: :delete,remote:true, class: "msgdelete" %></small>
 				<hr>
-				</div>				
+			</div>
+		</div>
+	</div>
 			</li>
 			<% else %>
-			<li   class = "media", id = "list-item" >
+			<li  id = "list-item" >
 				<div class="media-body">
 				<div class="media">
-					<a class= "pull-left" href = "#"><%= image_tag ("#{@avatar}"),alt: "",class: "img-circle" %></a>
-				
+
+					<a class= "pull-left" href = "#"><%= image_tag msg.user.avatar,alt: "",class: "img-circle" %></a>
+
 				<div class = "meida-body">
 					<%= msg.text %>
 				<br>
-				<small class = "text-muted"><%= msg.user.name.titleize %> at <%= msg.created_at.strftime("%I:%M %p") %> | <%= link_to "Delete", :id => "delete_message"%></small>
+				<small class = "text-muted"><%= msg.user.name.titleize %> at <%= msg.created_at.strftime("%I:%M %p") %> | <%= link_to "Delete",msg, method: :delete,remote:true, class: "msgdelete" %></small>
 				<hr>
-				</div>	
+				</div>
+			</div>
+		</div>
 			</li>
-			<% end %> 
-			<% end %>	
+			<% end %>
+			<% end %>
 		</ul>
 	</div>
 </div>
-	<div class = "panel-footer">
-		
-        
+<div class = "panel-footer">
+
 	</div>
 </div>
 
@@ -55,5 +60,4 @@ window.onload = function (){
 }
 var objDiv = document.getElementById("groupmessages_list");
 objDiv.scrollTop = objDiv.scrollHeight;
-
 </script>

@@ -1,9 +1,0 @@
-
-
-<% @users.each_with_index do |user, index| %>
-        <% if user_signed_in? %>
-      <li style="list-style-type: none;"><%=link_to  user.name,"#",class: " btn-xs start-conversation",
-                  "data-sid" => current_user.id, "data-rip" => user.id %></li>
-        <% end %>
-    <% index +=1 %>
-<% end %>

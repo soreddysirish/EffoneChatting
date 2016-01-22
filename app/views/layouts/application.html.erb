@@ -9,7 +9,7 @@
   <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
 
   <title>Chatty</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -22,24 +22,12 @@
 
   <%= render 'layouts/nav' %>
 
-  <div class="container">
-    <div class = "row">
-      <div class=" col-sm-4 col-md-3">
-      <div class  = "onlineusers">  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-md-2 col-sm-2 col-xs-4">
           <%= render partial: 'users/onlineuser' %>
         </div>
-    </div>
-      <div class= "col-sm-8 col-md-9">
-        <% if alert %>
-        <div class="alert alert-danger" role="alert"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><%= notice %><%= alert %></div>
-        <% end %>
-        <% if notice %>
-        <div class="alert alert-success" role="alert"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><%= notice %>
-        </div>
-        <% end %>
-     <div id = "chatbox_parent">
-      
-     </div>
+      <div class="col-lg-9 col-md-10 col-sm-10 col-md-offset-center col-xs-8">
       <%= subscribe_to "/chatroom"  %>
      <script>
        PrivatePub.subscribe("/chatroom", function(data, channel)
@@ -54,14 +42,22 @@
           }
          });
        </script>
+
       <%= yield %>
+      </div>
+    </div>
+  </div>
+
   <!-- <audio id="chatAudio"><source src="/sounds/notification.mp3" type="audio/mpeg"></audio> -->
 </body>
+
+
+
 <div class="container-fluid">
-  <dvi class = "row">
+  <div class = "row">
     <div class=" col-md-12">
       <footer class="navbar-inverse navbar-fixed-bottom">
-        
+
         <p style = "text-align:center; color:#eee"><span class = "glyphicon glyphicon-copyright-mark"> </span>  Effone Technologies</p>
 
       </footer>

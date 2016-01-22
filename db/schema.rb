@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112124634) do
+ActiveRecord::Schema.define(version: 20160121132332) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 20160112124634) do
 
   add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id"
   add_index "messages", ["user_id"], name: "index_messages_on_user_id"
+
+  create_table "read_marks", force: :cascade do |t|
+    t.integer  "readable_id"
+    t.string   "readable_type", null: false
+    t.integer  "reader_id"
+    t.string   "reader_type",   null: false
+    t.datetime "timestamp"
+  end
+
+  add_index "read_marks", ["reader_id", "reader_type", "readable_type", "readable_id"], name: "read_marks_reader_readable_index"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

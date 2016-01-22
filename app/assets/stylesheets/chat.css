@@ -3,6 +3,7 @@
     position: expression("absolute");
     width: 200px;
     display: none;
+    bottom:32px;
     
 }
 
