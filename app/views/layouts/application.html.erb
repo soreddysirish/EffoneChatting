@@ -13,23 +13,26 @@
   <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
-
-
 </head>
 
 <body>
-
+  <script>
+  PrivatePub.subscribe("/users/new", function(data, channel) {
+  alert('hi');
+  });
+  </script>
   <%= render 'layouts/nav' %>
 
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-3 col-md-2 col-sm-2 col-xs-4">
           <%= render partial: 'users/onlineuser' %>
+
         </div>
       <div class="col-lg-9 col-md-10 col-sm-10 col-md-offset-center col-xs-8">
-      <%= subscribe_to "/chatroom"  %>
-     <script>
+
+      <!-- <%= subscribe_to "/chatroom"  %> -->
+     <!-- <script>
        PrivatePub.subscribe("/chatroom", function(data, channel)
         {
        var current_user_id = '#{current_user.try(:id)}';
@@ -41,7 +44,7 @@
             chatBox.chatWith(data.conversation_id);
           }
          });
-       </script>
+       </script> -->
 
       <%= yield %>
       </div>
