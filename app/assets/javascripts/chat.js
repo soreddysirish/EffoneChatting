@@ -53,7 +53,7 @@ var ready = function () {
                     if (align == 0) {
                         $("#chatbox_" + chatbox_id).css('right', '20px');
                     } else {
-                        width = (align) * (280 + 7) + 20;
+                        width = (align) * (200 + 7) + 20;
                         $("#chatbox_" + chatbox_id).css('right', width + 'px');
                     }
                     align++;
@@ -100,11 +100,11 @@ var ready = function () {
                     chatBoxeslength++;
                 }
             }
-
+            //debugger;
             if (chatBoxeslength == 0) {
                 $("#chatbox_" + conversation_id).css('right', '20px');
             } else {
-                width = (chatBoxeslength) * (280 + 7) + 20;
+                width = (chatBoxeslength) * (200 + 7) + 20;
                 $("#chatbox_" + conversation_id).css('right', width + 'px');
             }
 

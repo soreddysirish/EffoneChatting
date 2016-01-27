@@ -353,3 +353,31 @@ input[type="file"] {
 #message-box{
   background-color: #eee;
 }
+
+#onlineusers {
+  height:500px;
+}
+
+.panel-primary {
+border-color: #337ab7;
+border-right: 1px solid #337ab7;
+border-bottom: none;
+border-radius: 0px;
+}
+
+.nav > li > a > img {
+
+width: 30px;
+
+height: 30px;
+border-radius: 50px;
+}
+
+a .dropdown-toggle {
+  background-color:#5C6588;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+background-color: #5C6588;
+
+}

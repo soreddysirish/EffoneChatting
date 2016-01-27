@@ -19,20 +19,11 @@
                 </ul>
               </div>
               <% end %>
-
-
               <div class="form-group">
-
-                <%= f.text_field :name, :placeholder => "Name", :id => 'name ',:class => "form-control", :autofocus => true,:style => "width:100%" , label: false %>
-
-
+                  <%= f.text_field :name, :placeholder => "Name", :id => 'name ',:class => "form-control", :autofocus => true,:style => "width:100%" , label: false %>
                 <%= f.email_field :email, :placeholder => "email", :id => 'email',:class => "form-control",:style => "width:100%", label: false %>
-
-
                 <%= f.password_field :password, :placeholder => "password", :id => 'password',:class => "form-control", :style => "width:100%", label: false%>
-
                 <%= f.password_field :password, :placeholder => "password_confirmation", :id => 'password_confirmation',:class => "form-control", :style => "width:100%", label: false%>
-
                 <%= f.input :avatar, as: :file, :class => "form-control" %>
               </div>
               <%= f.button :submit,"Sign Up" , :id => "login-submit",:class => "fbtn btn-block signin"%>
