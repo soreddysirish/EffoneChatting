@@ -1,6 +1,3 @@
-<script>
-
-</script>
  <div id = "onlineusers">
 	<nav class="nav-sidebar">
 	<% if user_signed_in? %>
@@ -26,3 +23,15 @@
 	<div>
 </nav>
 </div>
+<% if user_signed_in? %>
+<script>
+PrivatePub.subscribe("/users/new", function(data, channel) {
+alert data.name
+});
+</script>
+<script>
+PrivatePub.subscribe("/chatroom", function(data, channel) {
+alert data.receiver_id
+});
+</script>
+<% end %>

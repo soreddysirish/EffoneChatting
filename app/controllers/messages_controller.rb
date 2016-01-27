@@ -10,10 +10,7 @@ class MessagesController < ApplicationController
     @path = conversation_path(@conversation)
   end
 
-
-
   private
-
   def message_params
     params.require(:message).permit(:body)
   end
