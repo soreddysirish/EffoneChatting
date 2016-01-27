@@ -17,3 +17,8 @@
 	<div>
 </nav>
 </div>
+<script>
+  PrivatePub.subscribe("/users/new", function(data, channel) {
+  return alert('hi');
+  });
+  </script>
