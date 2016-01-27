@@ -5,17 +5,11 @@
 	<div class = "panel-heading">Online Users</div>
 	<% @users = User.online_users_list %>
    <% @onlineusers = @users - [current_user] %>
-	
+	<ul class="nav media-list" id = "users_list">
 		<% @onlineusers.each do  |user| %>
 		<% if user_signed_in? %>
-		<ul class="nav media-list" id = "users_list">
-		<li style="list-style-type: none;" class=".online_users">
-			
-			<%= link_to image_tag(user.avatar) + "&nbsp&nbsp".html_safe + "#{user.name.titleize}", "#",class: " btn-xs start-conversation",
-		"data-sid" => current_user.id, "data-rip" => user.id, :id => "user_image" %>		
-		
-		
-	</li>
+		<li style="list-style-type: none;" class=".online_users"><%=link_to  user.name.titleize,"#",class: " btn-xs start-conversation",
+		"data-sid" => current_user.id, "data-rip" => user.id %></li>
 		<% end %>
 		<% end %>
 	</ul>
@@ -23,7 +17,6 @@
 	<div>
 </nav>
 </div>
-
 <% if user_signed_in? %>
 <script>
 PrivatePub.subscribe("/users/new", function(data, channel) {

@@ -15,7 +15,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
   <script>
     PrivatePub.subscribe("/users/new", function(data, channel) {
     return alert('hi');
@@ -24,7 +23,7 @@
 
   <%= render 'layouts/nav' %>
   <div class="container-fluid">
-    
+
     <div class="row">
       <div class="col-lg-3 col-md-2 col-sm-2 col-xs-4">
           <%= render partial: 'users/onlineuser' %>
@@ -54,8 +53,6 @@
 
   <!-- <audio id="chatAudio"><source src="/sounds/notification.mp3" type="audio/mpeg"></audio> -->
 </body>
-
-
 
 <div class="container-fluid">
   <div class = "row">
