@@ -17,7 +17,7 @@
 	<div>
 </nav>
 </div>
-<<<<<<< HEAD
+
 <% if user_signed_in? %>
 <script>
 PrivatePub.subscribe("/users/new", function(data, channel) {
@@ -30,10 +30,3 @@ alert data.receiver_id
 });
 </script>
 <% end %>
-=======
-<script>
-  PrivatePub.subscribe("/users/new", function(data, channel) {
-  return alert('hi');
-  });
-  </script>
->>>>>>> test
