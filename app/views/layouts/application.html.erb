@@ -14,13 +14,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <script>
-    PrivatePub.subscribe("/users/new", function(data, channel) {
-    return alert('hi');
-    });
-    </script>
 
+<body>
   <%= render 'layouts/nav' %>
   <div class="container-fluid">
 
@@ -54,11 +49,15 @@
   <!-- <audio id="chatAudio"><source src="/sounds/notification.mp3" type="audio/mpeg"></audio> -->
 </body>
 
+
+
 <div class="container-fluid">
   <div class = "row">
     <div class=" col-md-12">
       <footer class="navbar-inverse navbar-fixed-bottom" style="z-index:-1;">
+
         <p style = "text-align:center; color:#eee"><span class = "glyphicon glyphicon-copyright-mark"> </span>  Effone Technologies</p>
+
       </footer>
     </div>
   </div>

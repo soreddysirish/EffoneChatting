@@ -100,7 +100,7 @@ var ready = function () {
                     chatBoxeslength++;
                 }
             }
-            //debugger;
+
             if (chatBoxeslength == 0) {
                 $("#chatbox_" + conversation_id).css('right', '20px');
             } else {

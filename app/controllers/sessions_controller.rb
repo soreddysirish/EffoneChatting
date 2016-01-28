@@ -8,7 +8,7 @@ class SessionsController < Devise::SessionsController
 
 
   def destroy
-      super
     current_user.update_attributes(status:false)
+    super
   end
 end
