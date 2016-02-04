@@ -1,28 +1,29 @@
+<%= subscribe_to "/users/new" %>
  <div id = "onlineusers">
 	<nav class="nav-sidebar">
 	<% if user_signed_in? %>
 	<div class="panel panel-primary">
 	<div class = "panel-heading">Online Users</div>
+  <ul class="nav media-list" id = "users_list">
 	<% @users = User.online_users_list %>
    <% @onlineusers = @users - [current_user] %>
 		<% @onlineusers.each do  |user| %>
 		<% if user_signed_in? %>
-		<ul class="nav media-list" id = "users_list">
-		<li style="list-style-type: none;" class=".online_users">
-			<%= link_to image_tag(user.avatar) + "&nbsp&nbsp".html_safe + "#{user.name.titleize}", "#",class: " btn-xs start-conversation",
-		"data-sid" => current_user.id, "data-rip" => user.id, :id => "user_image" %>
-	</li>
+      		<li style="list-style-type: none;" class=".online_users">
+      			<%= link_to image_tag(user.avatar) + "&nbsp&nbsp".html_safe + "#{user.name.titleize}", "#",class: " btn-xs start-conversation",
+      		"data-sid" => current_user.id, "data-rip" => user.id, :id => "user_image" %>
+      	</li>
 		<% end %>
 		<% end %>
-	</ul>
-	<% end %>
+  </ul>
+  <% end %>
 	<div>
 </nav>
 </div>
 <% if user_signed_in? %>
 <script>
 PrivatePub.subscribe("/chatroom", function(data, channel) {
-alert('#{data.receiver_id}');
+// alert('#{data.receiver_id}');
 });
 </script>
 <% end %>
