@@ -23,6 +23,7 @@
           <!-- <li>
             <%= link_to 'Group Chat',  groupmessages_path %>
           </li> -->
+
           <li class="devider">
             <%= link_to "Logged in as #{current_user.email}" %>
           </li>
@@ -35,13 +36,11 @@
             </li>
           </ul>
         </li>
-          
-        
          <% else %>
             <li>
               <%= link_to "Signin", new_user_session_path, :style => "color:white" %>
             </li>
-            
+
             <li>
               <%= link_to "Signup", new_user_path, :style => "color:white" %>
             </li>
@@ -51,5 +50,14 @@
     <!-- /.navbar-collapse -->
   </div>
   <!-- /.container -->
- 
 </nav>
+<script>
+$(document).ready(function(){
+  $('.dropdown').mouseover(function(){
+    $('.dropdown-menu').slideDown("slow");
+  });
+  $('.dropdown').mouseleave(function(){
+    $('.dropdown-menu').slideUp("slow");
+  });
+});
+</script>

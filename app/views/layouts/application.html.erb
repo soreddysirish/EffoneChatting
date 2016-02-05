@@ -24,13 +24,12 @@
          <%= render partial: 'users/onlineuser' %>
       </div>
        <% if user_signed_in? %>
-
              <script>
                  PrivatePub.subscribe("/users/new",function(data, channel){
-                  //  alert(data.user.name);
+                  //  alert(data.userE .name);
                   //  $("#users_list").append("<li style='list-style-type: none;' class='.online_users'><a class='btn-xs start-conversation' data-sid='7' data-rip='8' id='user_image' href='#'><img src='/system/users/avatars/000/000/008/original/giridhar.jpg?1454474495' alt='Giridhar'>&nbsp;&nbsp;data.user.name</a></li>");
-
-                  $("#users_list").append(data.user.id);
+                    // alert(data.user.name);
+                  $("#users_list").append(data.user.name);
                  });
             </script>
           <% end %>
