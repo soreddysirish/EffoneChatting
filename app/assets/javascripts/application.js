@@ -16,5 +16,7 @@
 //= require private_pub
 //= require users
 //= require bootstrap-sprockets
+//= require emoticons
+//= require emoticons_defination
 //= require turbolinks
 //= require_tree .

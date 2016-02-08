@@ -12,9 +12,9 @@ var ready = function () {
          * @param conversation_id
          */
 
-        chatWith: function (conversation_id) {
+        chatWith: function (conversation_id,display) {
 
-            chatBox.createChatBox(conversation_id);
+            chatBox.createChatBox(conversation_id,display);
             $("#chatbox_" + conversation_id + " .chatboxtextarea").focus();
         },
 
@@ -26,6 +26,8 @@ var ready = function () {
 
         close: function (conversation_id) {
             $('#chatbox_' + conversation_id).css('display', 'none');
+            $('#chatbox_' + conversation_id + ' .chatboxcontent').css('display', 'none');
+            $('#chatbox_' + conversation_id + ' .chatboxcontent').css('display', 'none');
             chatBox.restructure();
         },
 
@@ -74,13 +76,19 @@ var ready = function () {
          * @param minimizeChatBox
          */
 
-        createChatBox: function (conversation_id, minimizeChatBox) {
+        createChatBox: function (conversation_id,display, minimizeChatBox) {
             if ($("#chatbox_" + conversation_id).length > 0) {
                 if ($("#chatbox_" + conversation_id).css('display') == 'none') {
                     $("#chatbox_" + conversation_id).css('display', 'block');
                     chatBox.restructure();
                 }
                 $("#chatbox_" + conversation_id + " .chatboxtextarea").focus();
+                if(display) {
+                  $('#chatbox_' + conversation_id + ' .chatboxcontent').css('display', 'block');
+                  $('#chatbox_' + conversation_id + ' .chatboxinput').css('display', 'block');
+                  $("#chatbox_" + conversation_id + " .chatboxcontent").scrollTop($("#chatbox_" + conversation_id + " .chatboxcontent")[0].scrollHeight);
+                  chatBox.update_notifications(conversation_id);
+              }
                 return;
             }
 
@@ -88,6 +96,14 @@ var ready = function () {
 
             $.get("/conversations/" + conversation_id, function (data) {
                 $('#chatbox_' + conversation_id).html(data);
+                $('p.message').each(function(){
+                    $(this).html(($.emoticons.replace($(this).html())));
+                });
+                if(display) {
+                  $('#chatbox_' + conversation_id + ' .chatboxcontent').css('display', 'block');
+                  $('#chatbox_' + conversation_id + ' .chatboxinput').css('display', 'block');
+                  chatBox.update_notifications(conversation_id);
+              }
                 $("#chatbox_" + conversation_id + " .chatboxcontent").scrollTop($("#chatbox_" + conversation_id + " .chatboxcontent")[0].scrollHeight);
             }, "html");
 
