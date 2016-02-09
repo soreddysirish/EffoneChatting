@@ -246,11 +246,9 @@ margin-bottom: 20px;
 .panel-heading {
 padding: 10px 15px;
 border-bottom: 1px solid transparent;
-border-top-right-radius: 3px;
-border-top-left-radius: 3px;
+border-top-right-radius: 0px;
+border-top-left-radius: 0px;
 color: #31708f;
-
-
 }
 
 .panel-body {
@@ -368,7 +366,6 @@ border-radius: 0px;
 .nav > li > a > img {
 
 width: 30px;
-
 height: 30px;
 border-radius: 50px;
 }
@@ -380,4 +377,30 @@ a .dropdown-toggle {
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
 background-color: #5C6588;
 
+}
+
+.caret-up {
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid rgba(0, 0, 0, 0);
+    border-right: 4px solid rgba(0, 0, 0, 0);
+    border-bottom: 4px solid;
+    display: inline-block;
+    margin-left: 2px;
+    vertical-align: middle;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  text-decoration: none;
+  
+  color: #262626;
+  background-color: #80BDF1;
+}
+
+#groupmessage_text {
+  background-color: white;
+  border: 1px solid #0BCEF7;
+  border-radius: 2px;
+  width: 170%;
+  color:#5B5D5E;
 }

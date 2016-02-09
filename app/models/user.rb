@@ -18,5 +18,8 @@ class User < ActiveRecord::Base
        Conversation.create(sender_id: 1, recipient_id: self.id) unless self.id == 1
      end
 
+     def self.search(query)
+      where("name like ?", "%#{query}%")
+     end
     
 end

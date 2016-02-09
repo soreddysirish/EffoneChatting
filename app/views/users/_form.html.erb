@@ -1,33 +1,29 @@
-<div class="container">
-  <div class="form-wrap">
-    <div class="row">
-      <div class="col-md-offset-2">
-        <div class="animated bounceIn" id="form_1" data-animation="bounceIn">
-          <div class="col-xs-12">
-            <div class="form-header">
-              <i class="fa fa-user"></i>
-            </div>
-            <div class="form-main">
-              <%= simple_form_for(@user) do |f| %>
-              <% if @user.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-                <ul>
-                  <% @user.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
+ <div class="main content clear-fix">
+   <div class="container">
+    <div class="form-wrap">
+      <div class="row">
+        <div class="col-lg-9 col-md-10 col-sm-10 col-xs-6 col-lg-offset-3 col-md-offset-2 col-sm-offset-2"  >
+          <div class="animated bounceIn" id="form_1" data-animation="bounceIn">
+            <div class="col-xs-12">
+              <div class="form-header">
+                <i class="fa fa-user">
+                  <% if current_user.present? %>
+                  <%= image_tag current_user.avatar %>
                   <% end %>
-                </ul>
+                </i>
               </div>
-              <% end %>
-              <div class="form-group">
+              <div class="form-main">
+                <%= simple_form_for(@user) do |f| %>
+                <div class="form-group">
                   <%= f.text_field :name, :placeholder => "Name", :id => 'name ',:class => "form-control", :autofocus => true,:style => "width:100%" , label: false %>
-                <%= f.email_field :email, :placeholder => "email", :id => 'email',:class => "form-control",:style => "width:100%", label: false %>
-                <%= f.password_field :password, :placeholder => "password", :id => 'password',:class => "form-control", :style => "width:100%", label: false%>
-                <%= f.password_field :password, :placeholder => "password_confirmation", :id => 'password_confirmation',:class => "form-control", :style => "width:100%", label: false%>
-                <%= f.input :avatar, as: :file, :class => "form-control" %>
+                  <%= f.email_field :email, :placeholder => "email", :id => 'email',:class => "form-control",:style => "width:100%", label: false %>
+                  <%= f.password_field :password, :placeholder => "password", :id => 'password',:class => "form-control", :style => "width:100%", label: false%>
+                  <%= f.password_field :password, :placeholder => "password_confirmation", :id => 'password_confirmation',:class => "form-control", :style => "width:100%", label: false %>
+                  <%= f.input :avatar, as: :file, :class => "form-control" %>
+                </div>
+                <%= f.button :submit,"Sign Up" , :id => "login-submit",:class => "fbtn btn-block signin" %>
+                <% end %>
               </div>
-              <%= f.button :submit,"Sign Up" , :id => "login-submit",:class => "fbtn btn-block signin"%>
-              <% end %>
             </div>
           </div>
         </div>

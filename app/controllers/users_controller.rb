@@ -5,6 +5,12 @@ class UsersController < ApplicationController
 
   def index
     @groupmessage = Groupmessage.new
+
+    if params[:search]
+      @users = User.search(params[:search]).order("created_at Desc")
+    else
+      @users = User.all.order("created_at Desc")
+    end
     
   #  @groupmessages = Groupmessage.all
     #binding.pry
@@ -30,7 +36,7 @@ end
    def toggle
      @user=User.find(params[:id])
    if @user.update_attributes(banned:params[:banned])
-     flash[:alert]=" user is successfully banned"
+     flash[:alert]= "user is successfully banned"
      render nothing:true
    end
  end
