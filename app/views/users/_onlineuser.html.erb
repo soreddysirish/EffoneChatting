@@ -1,10 +1,23 @@
 <%= subscribe_to "/users/new" %>
- <div id = "onlineusers">
-	<nav class="nav-sidebar">
-	<% if user_signed_in? %>
-	<div class="panel panel-primary">
-	<div class = "panel-heading">Online Users</div>
-  <ul class="nav media-list" id = "users_list">
+ <nav class="navbar-default navbar-static-side" role="navigation" style="background-color: #2f4050;">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu" style="display:block;">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold">Online users</strong>
+                                <% if user_signed_in? %>
+                                <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
+                                <% else %>
+                                <%= link_to "Signin", new_user_session_path, :style => "color:white" %>
+                                <% end %>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+            </li>
 	<% @users = User.online_users_list %>
    <% @onlineusers = @users - [current_user] %>
 		<% @onlineusers.each do  |user| %>
@@ -16,10 +29,10 @@
 		<% end %>
 		<% end %>
   </ul>
-  <% end %>
+  
 	<div>
 </nav>
-</div>
+
 <% if user_signed_in? %>
 <script>
 PrivatePub.subscribe("/chatroom", function(data, channel) {

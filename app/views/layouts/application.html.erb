@@ -15,15 +15,15 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body>
-  <!-- <%= subscribe_to "/users/new" %> -->
-  <%= render 'layouts/nav' %>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-3 col-md-2 col-sm-2 col-xs-4" id="message_test">
-         <%= render partial: 'users/onlineuser' %>
-      </div>
+<body class="pace-done">
+  <div id= "wrapper">
+ <%= subscribe_to "/users/new" %>
+ 
+ 
+  
+    
        <% if user_signed_in? %>
+        
              <script>
                  PrivatePub.subscribe("/users/new",function(data, channel){
                   //  alert(data.userE .name);
@@ -33,7 +33,7 @@
                  });
             </script>
           <% end %>
-      <div class="col-lg-9 col-md-10 col-sm-10 col-md-offset-center col-xs-8">
+      
       <%= subscribe_to "/chatroom"  %>
      <!-- <script>
        PrivatePub.subscribe("/chatroom", function(data, channel)
@@ -48,26 +48,21 @@
           }
          });
        </script> -->
-
+       <div id="page-wrapper" class="gray-bg" style="min-height:560px">
+         <%= render 'layouts/topnavbar' %>
       <%= yield %>
-      </div>
-    </div>
-  </div>
 
+
+    </div>
+      </div>
+      <% if user_signed_in? >
+    <%= render "layouts/footer" %>
+    <% end %>
   <!-- <audio id="chatAudio"><source src="/sounds/notification.mp3" type="audio/mpeg"></audio> -->
+
 </body>
 
 
 
-<div class="container-fluid">
-  <div class = "row">
-    <div class=" col-md-12">
-      <footer class="navbar-inverse navbar-fixed-bottom" style="z-index:-1;">
 
-        <p style = "text-align:center; color:#eee"><span class = "glyphicon glyphicon-copyright-mark"> </span>  Effone Technologies</p>
-
-      </footer>
-    </div>
-  </div>
-</div>
 </html>

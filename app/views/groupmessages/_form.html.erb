@@ -1,6 +1,7 @@
 <%= subscribe_to "/groupmessages/new"  %>
 
 <%= simple_form_for @groupmessage, method: :post, remote: true, input_html: {multipart: true} do |f| %>
+<div class="row">
 <div class="col-md-12">
 <div class="input-group" >
 	<div class="left-inner-addon">
@@ -9,4 +10,5 @@
 		</div>
 		</div>
 	</div>
+</div>
 <% end %>
