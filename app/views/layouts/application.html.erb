@@ -23,7 +23,7 @@
   
     
        <% if user_signed_in? %>
-        
+        <%= render "users/onlineuser" %>
              <script>
                  PrivatePub.subscribe("/users/new",function(data, channel){
                   //  alert(data.userE .name);
@@ -55,7 +55,7 @@
 
     </div>
       </div>
-      <% if user_signed_in? >
+      <% if user_signed_in? %>
     <%= render "layouts/footer" %>
     <% end %>
   <!-- <audio id="chatAudio"><source src="/sounds/notification.mp3" type="audio/mpeg"></audio> -->
