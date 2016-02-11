@@ -1,21 +1,16 @@
 <%= subscribe_to "/users/new" %>
- <nav class="navbar-default navbar-static-side" role="navigation" style="background-color: #2f4050;">
+ <nav class="navbar-default navbar-static-side" role="navigation" >
     <div class="sidebar-collapse">
-        <ul class="nav metismenu" id="side-menu" style="display:block;">
+        <ul class="nav metismenu" id="side-menu" style="display:block;background-color:rgba(22, 129, 65, 0.7)">
             <li class="nav-header">
                 <div class="dropdown profile-element">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    
                         <span class="clear">
                             <span class="block m-t-xs">
-                                <strong class="font-bold">Online users</strong>
-                                <% if user_signed_in? %>
-                                <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
-                                <% else %>
-                                <%= link_to "Signin", new_user_session_path, :style => "color:white" %>
-                                <% end %>
+                                <strong class="font-bold" style="color:white;">Online users</strong>  
                             </span>
                         </span>
-                    </a>
+                   
                 </div>
             </li>
 	<% @users = User.online_users_list %>

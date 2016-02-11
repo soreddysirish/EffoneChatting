@@ -1,16 +1,16 @@
 class User < ActiveRecord::Base
-   acts_as_reader
+ acts_as_reader
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
-         :recoverable, :rememberable, :trackable, :validatable
-     has_many :conversations, :foreign_key => :sender_id, :dependent => :destroy
-     scope :online_users_list, -> { where(status:true)}
-      has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
-      validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
- enum role: [:admin]
-     private
+  :recoverable, :rememberable, :trackable, :validatable
+  has_many :conversations, :foreign_key => :sender_id, :dependent => :destroy
+  scope :online_users_list, -> { where(status:true)}
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/default.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+  enum role: [:admin]
+  private
 
      # for demo purposes
 
@@ -19,7 +19,11 @@ class User < ActiveRecord::Base
      end
 
      def self.search(query)
-      where("name like ?", "%#{query}%")
-     end
+      if search
+        where("name like ?", "%#{query}%")
+      else
+        all
+      end
+    end
     
-end
+  end
