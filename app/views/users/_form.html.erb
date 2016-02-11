@@ -1,38 +1,44 @@
 <html>
 <body style="background-color:white;">
-
- <div class="main content clear-fix">
-   <div class="container" style="background-color:white">
-    <div class="form-wrap">
-      <div class="row">
-        <div class="col-lg-9 col-md-10 col-sm-10 col-xs-6 col-lg-offset-3 col-md-offset-2 col-sm-offset-2"  >
-          <div class="animated bounceIn" id="form_1" data-animation="bounceIn">
-            <div class="col-xs-12">
-              <div class="form-header">
-                <i class="fa fa-user">
-                  <% if current_user.present? %>
-                  <%= image_tag current_user.avatar %>
-                  <% end %>
-                </i>
-              </div>
-              <div class="form-main">
-                <%= simple_form_for(@user) do |f| %>
-                <div class="form-group">
-                  <%= f.text_field :name, :placeholder => "Name", :id => 'name ',:class => "form-control", :autofocus => true,:style => "width:100%" , label: false %>
-                  <%= f.email_field :email, :placeholder => "email", :id => 'email',:class => "form-control",:style => "width:100%", label: false %>
-                  <%= f.password_field :password, :placeholder => "password", :id => 'password',:class => "form-control", :style => "width:100%", label: false%>
-                  <%= f.password_field :password, :placeholder => "password_confirmation", :id => 'password_confirmation',:class => "form-control", :style => "width:100%", label: false %>
-                  <%= f.input :avatar, as: :file, :class => "form-control" %>
-                </div>
-                <%= f.button :submit,"Sign Up" , :id => "login-submit",:class => "fbtn btn-block signin" %>
+</head>
+  <style>
+    background-image: url(assets-path(nature1.jpg);
+  </style>
+</head>
+<div class="signin">
+<div class="main content clear-fix">
+ <div class="container" style="background-color:white">
+  <div class="form-wrap">
+    <div class="row">
+      <div class="col-lg-9 col-md-10 col-sm-10 col-xs-6 col-lg-offset-3 col-md-offset-1 col-sm-offset-2"  >
+        <div class="animated bounceIn" id="form_1" data-animation="bounceIn">
+          <div class="col-xs-12">
+            <div class="form-header">
+              <i class="fa fa-user">
+                <% if current_user.present? %>
+                <%= image_tag current_user.avatar %>
                 <% end %>
+              </i>
+            </div>
+            <div class="form-main">
+              <%= simple_form_for(@user) do |f| %>
+              <div class="form-group">
+                <%= f.text_field :name, :placeholder => "Name", :id => 'name ',:class => "form-control", :autofocus => true,:style => "width:100%" , label: false %>
+                <%= f.email_field :email, :placeholder => "email", :id => 'email',:class => "form-control",:style => "width:100%", label: false %>
+                <%= f.password_field :password, :placeholder => "password", :id => 'password',:class => "form-control", :style => "width:100%", label: false%>
+                <%= f.password_field :password, :placeholder => "password_confirmation", :id => 'password_confirmation',:class => "form-control", :style => "width:100%", label: false %>
+                <%= f.input :avatar, as: :file, :class => "form-control" %>
               </div>
+              <%= f.button :submit,"Sign Up" , :id => "login-submit",:class => "fbtn btn-block signin" %>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>
 </body>
 </html>
